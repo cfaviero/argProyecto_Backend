@@ -49,7 +49,7 @@ public class EducacionControl {
     @PreAuthorize("hasRole('ADMIN')")
         @PostMapping("/educacion")
         public ResponseEntity<?> create(@RequestBody DTOEducacion educ){
-            Educacion eduNuevo = new Educacion(educ.getCarrera_curso(), educ.getInstituto(), educ.getFecha_inicio(), educ.getEstado_actual(), educ.getDescripcion());
+            Educacion eduNuevo = new Educacion(educ.getCarrera_curso(), educ.getInstituto(), educ.getFecha_inicio(), educ.getEstado_actual(), educ.getDescripcion(), educ.getUrl_imagen());
             eduService.crearEducacion(eduNuevo);
             return new ResponseEntity(new Mensaje("Educación creada."), HttpStatus.OK);
         }
@@ -78,7 +78,8 @@ public class EducacionControl {
                 return new ResponseEntity(new Mensaje("Ingresar el estado actual es obligatorio."), HttpStatus.BAD_REQUEST);
             if(StringUtils.isBlank(eduDto.getDescripcion()))
                 return new ResponseEntity(new Mensaje("Ingresar la descripción es obligatorio."), HttpStatus.BAD_REQUEST);
-            
+            if(StringUtils.isBlank(eduDto.getUrl_imagen()))
+                return new ResponseEntity(new Mensaje("Ingresar la descripción es obligatorio."), HttpStatus.BAD_REQUEST);
 
             Educacion editExp = eduService.buscarEducacion(id);
             editExp.setCarrera_curso(eduDto.getCarrera_curso());
@@ -86,6 +87,7 @@ public class EducacionControl {
             editExp.setFecha_inicio(eduDto.getFecha_inicio());
             editExp.setEstado_actual(eduDto.getEstado_actual());
             editExp.setDescripcion(eduDto.getDescripcion());
+            editExp.setUrl_imagen(eduDto.getUrl_imagen());
             eduService.crearEducacion(editExp);
             return new ResponseEntity(new Mensaje("Educación actualizada."), HttpStatus.OK);
         }

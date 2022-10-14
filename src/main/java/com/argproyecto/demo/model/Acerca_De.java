@@ -9,16 +9,16 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class AcercaDe {
+public class Acerca_De {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String descripcion;
 
-    public AcercaDe() {
+    public Acerca_De() {
     }
 
-    public AcercaDe(String descripcion) {
+    public Acerca_De(String descripcion) {
         this.descripcion = descripcion;
     }
     

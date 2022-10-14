@@ -18,16 +18,19 @@ public class DTOEducacion {
     private String estado_actual;
     @NotBlank
     private String descripcion;
+    @NotBlank
+    private String url_imagen;
 
     public DTOEducacion() {
     }
 
-    public DTOEducacion(@NotBlank String carrera_curso, @NotBlank String instituto, @NotBlank String fecha_inicio, @NotBlank String estado_actual, @NotBlank String descripcion) {
+    public DTOEducacion(@NotBlank String carrera_curso, @NotBlank String instituto, @NotBlank String fecha_inicio, @NotBlank String estado_actual, @NotBlank String descripcion, @NotBlank String url_imagen) {
         this.carrera_curso = carrera_curso;
         this.instituto = instituto;
         this.fecha_inicio = fecha_inicio;
         this.estado_actual = estado_actual;
         this.descripcion = descripcion;
+        this.url_imagen = url_imagen;
     }
     
     

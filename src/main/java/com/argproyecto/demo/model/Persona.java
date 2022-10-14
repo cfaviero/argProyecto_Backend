@@ -19,7 +19,7 @@ public class Persona {
     
     private String nombre;
     private String apellido;
-    private String descripción;
+    private String descripcion;
     private String foto_perfil;
     private String foto_banner;
     private String url_instagram;
@@ -30,10 +30,10 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String descripción, String foto_perfil, String foto_banner, String url_instagram, String url_twitter, String url_facebook) {
+    public Persona(String nombre, String apellido, String descripcion, String foto_perfil, String foto_banner, String url_instagram, String url_twitter, String url_facebook) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.descripción = descripción;
+        this.descripcion = descripcion;
         this.foto_perfil = foto_perfil;
         this.foto_banner = foto_banner;
         this.url_instagram = url_instagram;

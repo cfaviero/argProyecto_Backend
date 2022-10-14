@@ -50,7 +50,7 @@ public class PersonaController {
     @PreAuthorize("hasRole('ADMIN')")
         @PostMapping("/persona")
         public ResponseEntity<?> create(@RequestBody DTOPersona pers){
-            Persona personaNuevo = new Persona(pers.getNombre(), pers.getApellido(), pers.getDescripción(), pers.getFoto_perfil(), pers.getFoto_banner(), pers.getUrl_instagram(), pers.getUrl_twitter(), pers.getUrl_facebook());
+            Persona personaNuevo = new Persona(pers.getNombre(), pers.getApellido(), pers.getDescripcion(), pers.getFoto_perfil(), pers.getFoto_banner(), pers.getUrl_instagram(), pers.getUrl_twitter(), pers.getUrl_facebook());
             persoServ.crearPersona(personaNuevo);
             return new ResponseEntity(new Mensaje("Persona creada"), HttpStatus.OK);
         }
@@ -74,7 +74,7 @@ public class PersonaController {
                 return new ResponseEntity(new Mensaje("Ingresar el nombre es obligatorio."), HttpStatus.BAD_REQUEST);
             if(StringUtils.isBlank(personaDTO.getApellido()))
                 return new ResponseEntity(new Mensaje("Ingresar la apellido es obligatorio."), HttpStatus.BAD_REQUEST);
-            if(StringUtils.isBlank(personaDTO.getDescripción()))
+            if(StringUtils.isBlank(personaDTO.getDescripcion()))
                 return new ResponseEntity(new Mensaje("Ingresar la Descripcion es obligatorio."), HttpStatus.BAD_REQUEST);
             if(StringUtils.isBlank(personaDTO.getFoto_perfil()))
                 return new ResponseEntity(new Mensaje("Ingresar la foto de perfil es obligatorio."), HttpStatus.BAD_REQUEST);
@@ -84,7 +84,7 @@ public class PersonaController {
             Persona editPerso = persoServ.buscarPersona(id);
             editPerso.setNombre(personaDTO.getNombre());
             editPerso.setApellido(personaDTO.getApellido());
-            editPerso.setDescripción(personaDTO.getDescripción());
+            editPerso.setDescripcion(personaDTO.getDescripcion());
             editPerso.setFoto_perfil(personaDTO.getFoto_perfil());
             editPerso.setFoto_banner(personaDTO.getFoto_banner());
             editPerso.setUrl_instagram(personaDTO.getUrl_instagram());

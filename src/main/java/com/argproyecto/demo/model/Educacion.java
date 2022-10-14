@@ -18,18 +18,20 @@ public class Educacion {
     private String fecha_inicio;
     private String estado_actual;
     private String descripcion;
+    private String url_imagen;
 
     
     
     public Educacion() {
     }
 
-    public Educacion(String carrera_curso, String instituto, String fecha_inicio, String estado_actual, String descripcion) {
+    public Educacion(String carrera_curso, String instituto, String fecha_inicio, String estado_actual, String descripcion, String url_imagen) {
         this.carrera_curso = carrera_curso;
         this.instituto = instituto;
         this.fecha_inicio = fecha_inicio;
         this.estado_actual = estado_actual;
         this.descripcion = descripcion;
+        this.url_imagen = url_imagen;
     }
     
     

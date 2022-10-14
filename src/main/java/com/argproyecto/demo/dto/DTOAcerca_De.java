@@ -6,15 +6,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class DTOAcercaDe {
+public class DTOAcerca_De {
     
     @NotBlank
     private String descripcion;
 
-    public DTOAcercaDe() {
+    public DTOAcerca_De() {
     }
     
-    public DTOAcercaDe(@NotBlank String descripcion) {
+    public DTOAcerca_De(@NotBlank String descripcion) {
         this.descripcion = descripcion;
     }
     

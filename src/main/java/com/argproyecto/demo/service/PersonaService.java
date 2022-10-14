@@ -39,7 +39,7 @@ public class PersonaService implements IPersonaService{
         persoRepo.findById(id).map( editPerso -> {
         editPerso.setNombre(per.getNombre());
         editPerso.setApellido(per.getApellido());
-        editPerso.setDescripción(per.getDescripción());
+        editPerso.setDescripcion(per.getDescripcion());
         editPerso.setFoto_perfil(per.getFoto_perfil());
         editPerso.setFoto_banner(per.getFoto_banner());
         editPerso.setUrl_instagram(per.getUrl_instagram());

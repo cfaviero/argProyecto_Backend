@@ -1,9 +1,9 @@
 package com.argproyecto.demo.Controller;
 
-import com.argproyecto.demo.dto.DTOAcercaDe;
+import com.argproyecto.demo.dto.DTOAcerca_De;
 import com.argproyecto.demo.dto.Mensaje;
-import com.argproyecto.demo.model.AcercaDe;
-import com.argproyecto.demo.service.IAcercaDeService;
+import com.argproyecto.demo.model.Acerca_De;
+import com.argproyecto.demo.service.IAcerca_DeService;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,56 +23,56 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
-public class AcercaDeControl {
+public class Acerca_DeControl {
     
     @Autowired
-    private IAcercaDeService acercaServ;
+    private IAcerca_DeService acercaServ;
     
 
-        @GetMapping("/acercade")
-            public ResponseEntity<List<AcercaDe>> list(){
-                List<AcercaDe> list = acercaServ.verAcercaDe();
+        @GetMapping("/acerca_de")
+            public ResponseEntity<List<Acerca_De>> list(){
+                List<Acerca_De> list = acercaServ.verAcerca_De();
                 return new ResponseEntity(list, HttpStatus.OK);
             }
 
 
-        @GetMapping("/acercade/{id}")
-            public ResponseEntity<AcercaDe> getById(@PathVariable("id") Long id){
-                if(!acercaServ.existsAcercaDe(id))
+        @GetMapping("/acerca_de/{id}")
+            public ResponseEntity<Acerca_De> getById(@PathVariable("id") Long id){
+                if(!acercaServ.existsAcerca_De(id))
                     return new ResponseEntity(new Mensaje("No existe el Item buscado."), HttpStatus.NOT_FOUND);
-                AcercaDe acerca = acercaServ.buscarAcercaDe(id);
+                Acerca_De acerca = acercaServ.buscarAcerca_De(id);
                 return new ResponseEntity(acerca, HttpStatus.OK);
             }
     
     @PreAuthorize("hasRole('ADMIN')")
-        @PostMapping("/acercade")
-        public ResponseEntity<?> create(@RequestBody DTOAcercaDe acercDTO){
-            AcercaDe acercaNuevo = new AcercaDe(acercDTO.getDescripcion());
-            acercaServ.crearAcercaDe(acercaNuevo);
+        @PostMapping("/acerca_de")
+        public ResponseEntity<?> create(@RequestBody DTOAcerca_De acercDTO){
+            Acerca_De acercaNuevo = new Acerca_De(acercDTO.getDescripcion());
+            acercaServ.crearAcerca_De(acercaNuevo);
             return new ResponseEntity(new Mensaje("Descripcion creada."), HttpStatus.OK);
         }
 
     @PreAuthorize("hasRole('ADMIN')")
-        @DeleteMapping("/acercade/{id}")
+        @DeleteMapping("/acerca_de/{id}")
         public ResponseEntity<?> delete(@PathVariable("id")Long id){
-            if(!acercaServ.existsAcercaDe(id))
+            if(!acercaServ.existsAcerca_De(id))
                 return new ResponseEntity(new Mensaje("No existe el Item buscado."), HttpStatus.NOT_FOUND);
-            acercaServ.borrarAcercaDe(id);
+            acercaServ.borrarAcerca_De(id);
             return new ResponseEntity(new Mensaje("Descripcion eliminada."), HttpStatus.OK);
         }
 
     @PreAuthorize("hasRole('ADMIN')")
-        @PutMapping("/acercade/{id}")
-        public ResponseEntity<?> update(@PathVariable("id")Long id, @RequestBody DTOAcercaDe acercaDTO){
-            if(!acercaServ.existsAcercaDe(id))
+        @PutMapping("/acerca_de/{id}")
+        public ResponseEntity<?> update(@PathVariable("id")Long id, @RequestBody DTOAcerca_De acercaDTO){
+            if(!acercaServ.existsAcerca_De(id))
                 return new ResponseEntity(new Mensaje("No existe el item buscado."), HttpStatus.NOT_FOUND);
             if(StringUtils.isBlank(acercaDTO.getDescripcion()))
                 return new ResponseEntity(new Mensaje("Ingresar la descripcion es obligatorio."), HttpStatus.BAD_REQUEST);
             
 
-            AcercaDe editAcer = acercaServ.buscarAcercaDe(id);
+            Acerca_De editAcer = acercaServ.buscarAcerca_De(id);
             editAcer.setDescripcion(acercaDTO.getDescripcion());
-            acercaServ.crearAcercaDe(editAcer);
+            acercaServ.crearAcerca_De(editAcer);
             return new ResponseEntity(new Mensaje("Descripcion actualizada."), HttpStatus.OK);
         }
     

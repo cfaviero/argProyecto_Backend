@@ -1,39 +1,39 @@
 package com.argproyecto.demo.service;
 
-import com.argproyecto.demo.model.AcercaDe;
-import com.argproyecto.demo.repository.AcercaDeRepository;
+import com.argproyecto.demo.model.Acerca_De;
+import com.argproyecto.demo.repository.Acerca_DeRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AcercaDeService implements IAcercaDeService{
+public class Acerca_DeService implements IAcerca_DeService{
     
     @Autowired
-    public AcercaDeRepository acercaRepo;
+    public Acerca_DeRepository acercaRepo;
     
     @Override
-    public List<AcercaDe> verAcercaDe() {
+    public List<Acerca_De> verAcerca_De() {
         return acercaRepo.findAll();
     }
 
     @Override
-    public void crearAcercaDe(AcercaDe acerca) {
+    public void crearAcerca_De(Acerca_De acerca) {
         acercaRepo.save(acerca);
     }
 
     @Override
-    public void borrarAcercaDe(Long id) {
+    public void borrarAcerca_De(Long id) {
         acercaRepo.deleteById(id);
     }
 
     @Override
-    public AcercaDe buscarAcercaDe(Long id) {
+    public Acerca_De buscarAcerca_De(Long id) {
         return acercaRepo.findById(id).orElse(null);
     }
 
     @Override
-    public void editarAcercaDe(Long id, AcercaDe acerca) {
+    public void editarAcerca_De(Long id, Acerca_De acerca) {
         
         acercaRepo.findById(id).map( editAcerca -> {
         editAcerca.setDescripcion(acerca.getDescripcion());
@@ -43,7 +43,7 @@ public class AcercaDeService implements IAcercaDeService{
     }
 
     @Override
-    public Boolean existsAcercaDe(Long id) {
+    public Boolean existsAcerca_De(Long id) {
         try {
             acercaRepo.findById(id);
                 return true;

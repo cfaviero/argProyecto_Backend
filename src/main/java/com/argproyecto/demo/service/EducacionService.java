@@ -40,6 +40,7 @@ public class EducacionService implements IEducacionService{
          editEdu.setFecha_inicio(edu.getFecha_inicio());
          editEdu.setEstado_actual(edu.getEstado_actual());
          editEdu.setDescripcion(edu.getDescripcion());
+         editEdu.setUrl_imagen(edu.getUrl_imagen());
 
          return eduRepo.save(editEdu); });
     }

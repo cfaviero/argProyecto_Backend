@@ -11,7 +11,7 @@ public class DTOPersona {
     @NotBlank
     private String apellido;
     @NotBlank
-    private String descripción;
+    private String descripcion;
     @NotBlank
     private String foto_perfil;
     @NotBlank
@@ -26,10 +26,10 @@ public class DTOPersona {
     public DTOPersona() {
     }
 
-    public DTOPersona(String nombre, String apellido, String descripción, String foto_perfil, String foto_banner, String url_instagram, String url_twitter, String url_facebook) {
+    public DTOPersona(String nombre, String apellido, String descripcion, String foto_perfil, String foto_banner, String url_instagram, String url_twitter, String url_facebook) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.descripción = descripción;
+        this.descripcion = descripcion;
         this.foto_perfil = foto_perfil;
         this.foto_banner = foto_banner;
         this.url_instagram = url_instagram;
